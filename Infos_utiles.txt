@@ -1,0 +1,62 @@
+
+          ****-------------------------------------------INFOS UTIL 1---------------------------------****
+ *comment comprendre un fichier YAML:
+ 
+ par exemple le fichier checks.yml de sodad correspond mentalement à ça:
+
+"""{
+  "checks for yt_api": [
+    
+    'missing_count("Video_ID") = 0',
+
+    'duplicate_count("Video_ID") = 0',
+
+    {
+      'likes_count_greater_than_vid_views = 0': {
+          'name': 'Check for Like_Count greater than Video_Views',
+          'likes_count_greater_than_vid_views query':
+              'SELECT COUNT(*) ...'
+      }
+    },
+
+    {
+      'comments_count_greater_than_vid_views = 0': {
+          'name': 'Check for Comments_Count greater than Video_Views',
+          'comments_count_greater_than_vid_views query':
+              'SELECT COUNT(*) ...'
+      }
+    }
+  ]
+}
+
+Symbole	Signification
+
+clé:	        définition d’une clé
+-	            élément de liste
+indentation	  hiérarchie
+
+:	            associe clé → valeur
+
+
+
+                 ****-----------------------------------------------INFOS UTIL 2---------------------------------------****
+                 
+**On utilise pytest si :
+on développes une application Python
+on écris des fonctions
+on fais de l’API/backend
+on veux des tests unitaires
+
+**On utilise Soda si :
+on travailles en data engineering
+on vérifies des pipelines ETL
+on contrôles des tables SQL
+on fais de la qualité de données
+
+***Ils peuvent être utilisés ensemble
+
+Dans un vrai projet data :
+
+Python → transforme les données
+pytest → teste le code Python
+Soda → teste les données produites
